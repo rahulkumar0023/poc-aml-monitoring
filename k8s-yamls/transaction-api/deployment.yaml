@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: transaction-api
-        image: ghcr.io/example/transaction-api:latest
+        image: your-dockerhub-username/transaction-api:latest
         ports:
         - containerPort: 8080
         envFrom:
