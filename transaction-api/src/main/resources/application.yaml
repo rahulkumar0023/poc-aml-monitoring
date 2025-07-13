@@ -1,0 +1,6 @@
+server:
+  port: 8080
+kafka:
+  bootstrap-servers: kafka-broker:9092
+  topic:
+    name: transaction-events

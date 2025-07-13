@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transaction-processor
+  labels:
+    app: transaction-processor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: transaction-processor
+  template:
+    metadata:
+      labels:
+        app: transaction-processor
+    spec:
+      containers:
+      - name: transaction-processor
+        image: rahulkumartonk/poc-aml-monitoring/transaction-processor:latest
+        envFrom:
+        - configMapRef:
+            name: transaction-processor-config
