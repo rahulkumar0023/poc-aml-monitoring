@@ -1,4 +1,4 @@
-package com.example.transactionapi.dto;
+package com.example.transactionprocessor.dto;
 
 public class TransactionRequest {
     private String accountId;
