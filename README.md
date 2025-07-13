@@ -46,7 +46,8 @@ This is a **Proof of Concept (PoC)** for an **AML (Anti-Money Laundering) Transa
 
 ## 📐 **Architecture Diagram**
 
-![Architecture Diagram](./docs/architecture-diagram.png)
+![Architecture Diagram](./docs/poc-aml-monitoring-architecture.drawio.png)
+
 
 > **System Flows:**
 > - Bank System → Transaction API → Kafka → Processor → Fraud-Check → PostgresSQL DB.
