@@ -97,3 +97,5 @@ poc-aml-monitoring/
  ├── transaction-api/
  │   ├── src/main/java/...  (Spring Boot code)
  ├── README.md
+
+✅ `transaction-api` deployed with Deployment, Service, Ingress, ConfigMap, and Secret — practicing CKA Core Concepts + Security.

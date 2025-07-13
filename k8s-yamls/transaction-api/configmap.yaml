@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: transaction-api-config
+data:
+  FRAUD_THRESHOLD: "1000"
+  LOG_LEVEL: "INFO"
