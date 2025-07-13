@@ -1,0 +1,98 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4">
+  <diagram name="AML Transaction Monitoring C4" id="aml-tx-monitoring">
+    <mxGraphModel dx="1956" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="" style="shape=rectangle;rounded=1;strokeColor=#000000;fillColor=#ffffff;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="70" y="10" width="1280" height="710" as="geometry" />
+        </mxCell>
+        <mxCell id="actor1" value="Compliance Officer" style="shape=actor;verticalLabelPosition=bottom;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="30" y="400" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="actor2" value="Bank Core System" style="shape=rectangle;fillColor=#eeeeee;" parent="1" vertex="1">
+          <mxGeometry x="10" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="actor3" value="Regulator (future)" style="shape=rectangle;fillColor=#eeeeee;fontStyle=2;" parent="1" vertex="1">
+          <mxGeometry x="10" y="570" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6ixCsxkOULLU1ZAqAfyu-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="api" target="db">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="300" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="460" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="api" value="Transaction API&#xa;(Spring Boot)&#xa;- Deployment&#xa;- Service&#xa;- Ingress&#xa;- ConfigMap, Secret" style="shape=rectangle;rounded=1;fillColor=#9ecae1;strokeColor=#3182bd;fontSize=11;align=center;" parent="1" vertex="1">
+          <mxGeometry x="370" y="70" width="180" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="kafka" value="Kafka Broker" style="shape=rectangle;rounded=1;fillColor=#fdd0a2;strokeColor=#fd8d3c;" parent="1" vertex="1">
+          <mxGeometry x="690" y="100" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="processor" value="Transaction Processor" style="shape=rectangle;rounded=1;fillColor=#fdae6b;strokeColor=#e6550d;" parent="1" vertex="1">
+          <mxGeometry x="1040" y="100" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="fraud" value="Fraud-Check Service&#xa;(Spring Boot)" style="shape=rectangle;rounded=1;fillColor=#a1d99b;strokeColor=#31a354;" parent="1" vertex="1">
+          <mxGeometry x="1040" y="280" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="db" value="PostgreSQL DB" style="shape=cylinder;fillColor=#bdbdbd;strokeColor=#636363;" parent="1" vertex="1">
+          <mxGeometry x="700" y="280" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="auth" value="Auth Service" style="shape=rectangle;rounded=1;fillColor=#cbc9e2;strokeColor=#6a51a3;" parent="1" vertex="1">
+          <mxGeometry x="425" y="380" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ui" value="Frontend Dashboard" style="shape=rectangle;rounded=1;fillColor=#9ecae1;strokeColor=#08519c;fontStyle=2;" parent="1" vertex="1">
+          <mxGeometry x="130" y="380" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="flow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#000000;" parent="1" source="actor2" target="api" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#000000;" parent="1" source="api" target="kafka" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#000000;" parent="1" source="kafka" target="processor" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#000000;" parent="1" source="processor" target="fraud" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#000000;" parent="1" source="fraud" target="db" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#000000;" parent="1" source="actor1" target="ui" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#000000;" parent="1" source="ui" target="auth" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6ixCsxkOULLU1ZAqAfyu-24" value="RBAC/JWT" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="flow7">
+          <mxGeometry x="0.0761" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend" value="Kubernetes Deployment Artifacts:&lt;br&gt;Deployment → Pod → Container&lt;br&gt;Service, Ingress, ConfigMap, Secret, PV/PVC, RBAC" style="text;html=1;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="800" y="650" width="600" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6ixCsxkOULLU1ZAqAfyu-5" value="&lt;b&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;AML Transaction Monitoring Platform&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="20" width="390" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6ixCsxkOULLU1ZAqAfyu-14" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="599.5" as="sourcePoint" />
+            <mxPoint x="790" y="600" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="790" y="600" />
+              <mxPoint x="790" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6ixCsxkOULLU1ZAqAfyu-17" value="&lt;span style=&quot;color: oklch(0.3039 0.04 213.68); font-family: fkGroteskNeue, &amp;quot;fkGroteskNeue Fallback&amp;quot;, ui-sans-serif, system-ui, -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, Roboto, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; text-align: left; text-wrap-mode: wrap; background-color: oklch(0.9902 0.004 106.47);&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;Suspicious Activity Reports&lt;/font&gt;&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="6ixCsxkOULLU1ZAqAfyu-14">
+          <mxGeometry x="-0.1441" y="2" relative="1" as="geometry">
+            <mxPoint x="3" y="3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
