@@ -100,3 +100,4 @@ poc-aml-monitoring/
 
 ✅ `transaction-api` deployed with Deployment, Service, Ingress, ConfigMap, and Secret — practicing CKA Core Concepts + Security.
 ✅ transaction-api REST API live on Kubernetes — Dockerized, deployed with ConfigMap & Secret.
+✅ fraud-check-service wired with REST, ConfigMap, Secrets — practicing Scheduling & RBAC.

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fraud-check-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fraud-check-service
+  template:
+    metadata:
+      labels:
+        app: fraud-check-service
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: special-node
+      containers:
+      - name: fraud-check-service
+        image: your-dockerhub-username/fraud-check-service:latest
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: fraud-check-config
+        - secretRef:
+            name: fraud-check-secret
