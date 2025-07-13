@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: transaction-api
-        image: your-dockerhub-username/transaction-api:latest
+        image: rahulkumartonk/poc-aml-monitoring/transaction-api:latest
         ports:
         - containerPort: 8080
         envFrom:
